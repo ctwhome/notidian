@@ -1,4 +1,5 @@
-# Template Repository : SvelteKit + TailwindCSS + Tauri App
+# Notidian - Notion + Obsidian OpenSource Alternative
+
 by @ctwhome
 
 ```shell
