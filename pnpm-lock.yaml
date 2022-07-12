@@ -10,10 +10,13 @@ specifiers:
   '@tauri-apps/api': ^1.0.2
   '@tauri-apps/cli': ^1.0.3
   '@tiptap/core': 2.0.0-beta.182
+  '@tiptap/extension-bubble-menu': 2.0.0-beta.61
+  '@tiptap/extension-highlight': 2.0.0-beta.35
   '@tiptap/extension-link': 2.0.0-beta.43
   '@tiptap/extension-placeholder': 2.0.0-beta.53
   '@tiptap/extension-task-item': 2.0.0-beta.37
   '@tiptap/extension-task-list': 2.0.0-beta.29
+  '@tiptap/extension-underline': 2.0.0-beta.25
   '@tiptap/starter-kit': 2.0.0-beta.191
   '@tiptap/suggestion': 2.0.0-beta.97
   '@typescript-eslint/eslint-plugin': ^5.30.6
@@ -40,10 +43,13 @@ specifiers:
 
 dependencies:
   '@tauri-apps/api': 1.0.2
+  '@tiptap/extension-bubble-menu': 2.0.0-beta.61_jdrcmhoxj44u3cq7gnenksjiqq
+  '@tiptap/extension-highlight': 2.0.0-beta.35_jdrcmhoxj44u3cq7gnenksjiqq
   '@tiptap/extension-link': 2.0.0-beta.43_jdrcmhoxj44u3cq7gnenksjiqq
   '@tiptap/extension-placeholder': 2.0.0-beta.53_jdrcmhoxj44u3cq7gnenksjiqq
   '@tiptap/extension-task-item': 2.0.0-beta.37_4djaqdmz7hvlkchssojdo7dfsi
   '@tiptap/extension-task-list': 2.0.0-beta.29_jdrcmhoxj44u3cq7gnenksjiqq
+  '@tiptap/extension-underline': 2.0.0-beta.25_jdrcmhoxj44u3cq7gnenksjiqq
   '@tiptap/starter-kit': 2.0.0-beta.191
   '@tiptap/suggestion': 2.0.0-beta.97_jdrcmhoxj44u3cq7gnenksjiqq
   daisyui: 2.19.0_ugi4xkrfysqkt4c4y6hkyfj344
@@ -167,6 +173,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
+    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -417,6 +427,17 @@ packages:
       '@tiptap/core': 2.0.0-beta.182
     dev: false
 
+  /@tiptap/extension-bubble-menu/2.0.0-beta.61_jdrcmhoxj44u3cq7gnenksjiqq:
+    resolution: {integrity: sha512-T3Yx+y1sUnXAJjK1CUfsQewSxOpDca9KzKqN2H9c9RZ9UlorR9XmZg6YYW7m9a7adeihj+o3cCO9jRd8dV+nnA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.182
+      prosemirror-state: 1.4.1
+      prosemirror-view: 1.26.2
+      tippy.js: 6.3.7
+    dev: false
+
   /@tiptap/extension-bullet-list/2.0.0-beta.29_jdrcmhoxj44u3cq7gnenksjiqq:
     resolution: {integrity: sha512-R8VB2l1ZB6VeGWx/t/04nBS5Wg3qjIDEZCpPihj2fccJOw99Lu0Ub2UJg/SfdGmeNNpBh4ZYYFv1g/XjyzlXKg==}
     peerDependencies:
@@ -478,6 +499,14 @@ packages:
 
   /@tiptap/extension-heading/2.0.0-beta.29_jdrcmhoxj44u3cq7gnenksjiqq:
     resolution: {integrity: sha512-q92jYcsT5bPhvuQaB0h44Z9r+Ii22tDYo082KMVnR4+tknHT/3xx+p4JC8KHjh+/5W8Quyafqy6mS8L8VX0zsQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.182
+    dev: false
+
+  /@tiptap/extension-highlight/2.0.0-beta.35_jdrcmhoxj44u3cq7gnenksjiqq:
+    resolution: {integrity: sha512-xvEKOyuTj4mhQ8GIOItaSymJhGkWt2gGuCvmFWnTVZAaJJQOlgUTdkmayLCtwoDDP7biiuDhRJokTukGGmhUZw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.1
     dependencies:
@@ -584,6 +613,14 @@ packages:
 
   /@tiptap/extension-text/2.0.0-beta.17_jdrcmhoxj44u3cq7gnenksjiqq:
     resolution: {integrity: sha512-OyKL+pqWJEtjyd9/mrsuY1kZh2b3LWpOQDWKtd4aWR4EA0efmQG+7FPwcIeAVEh7ZoqM+/ABCnPjN6IjzIrSfg==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.182
+    dev: false
+
+  /@tiptap/extension-underline/2.0.0-beta.25_jdrcmhoxj44u3cq7gnenksjiqq:
+    resolution: {integrity: sha512-kRDdb/mF6QWzFGV3cQuLh6xyXULXaKPL/TghefoOZhwkdIWV/M3zFar5tsZO54+tbIrzxoVP6t7mO2Y5G/SLDQ==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.1
     dependencies:
@@ -3457,6 +3494,12 @@ packages:
       globalyzer: 0.1.0
       globrex: 0.1.2
     dev: true
+
+  /tippy.js/6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.5
+    dev: false
 
   /to-regex-range/5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
