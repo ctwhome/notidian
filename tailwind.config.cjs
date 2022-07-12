@@ -8,9 +8,10 @@ const config = {
 	},
 	darkMode: 'class',
 	plugins: [
-		require('@tailwindcss/forms'), 
+		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
-		require('@tailwindcss/aspect-ratio'), 
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/line-clamp'),
 		require('daisyui')
 	],
 	daisyui: {

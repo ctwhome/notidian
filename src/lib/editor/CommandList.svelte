@@ -27,7 +27,7 @@
 		<div class="p-2 text-sm text-slate-500">BLOCKS</div>
 		{#each $slashItems as { title, subtitle, command }, i}
 			<div
-				class="p-3 cursor-pointer {i == selectedIndex ? 'bg-slate-100' : 'bg-base-100'}"
+				class="p-3 cursor-pointer {i == selectedIndex ? 'bg-base-200' : 'bg-base-100'}"
 				on:mouseenter={() => (selectedIndex = i)}
 				on:click={() => {
 					$slashVisible = false;

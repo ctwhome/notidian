@@ -9,6 +9,7 @@
 	import Highlight from '@tiptap/extension-highlight';
 	import Underline from '@tiptap/extension-underline';
 	import BubbleMenu from '@tiptap/extension-bubble-menu';
+	import Image from '@tiptap/extension-image';
 	import YouTube from '@tiptap/extension-youtube';
 	import Link from '@tiptap/extension-link';
 	import suggestion from './suggestion';
@@ -34,7 +35,6 @@
 		}
 		if (event.key === 'ArrowDown') {
 			event.preventDefault();
-
 			downHandler();
 			return true;
 		}
@@ -90,6 +90,7 @@
           Underline,
           BubbleMenu,
           YouTube,
+          Image,
           Highlight,
 					Commands.configure({
 						suggestion
@@ -113,6 +114,7 @@
 		}
 	});
 </script>
+
 {#if editor}
   <div class="editor sticky top-[50px] z-[100]">
     <div class="bg-base-100 p-3">
@@ -217,9 +219,10 @@
     </div>
   </div>
 {/if}
+
 <div bind:this={element} />
 
-<div class="prose prose-slate sm:prose-xl lg:prose-3xl" bind:clientWidth={w}>
+<div class="prose" bind:clientWidth={w}>
 	<div bind:this={element} on:keydown|capture={handleKeydown} />
 </div>
 
@@ -263,28 +266,6 @@
 	</div>
 	{JSON.stringify(output)}
 {/if}
-<hr />
-<div class="my-8 p-2 prose prose-slate sm:prose-xl lg:prose-3xl">
-	<h3>Take it further</h3>
-	<p>
-		Take this starting point and make it your own! If you have questions, feel free to <a
-			href="https://twitter.com/ndrewheller"
-			target="_blank">DM me on Twitter</a
-		>. Check out the links below to learn more about creating custom blocks.
-	</p>
-	<ul>
-		<li>
-			<a href="https://tiptap.dev/guide/custom-extensions" target="_blank">
-				Tiptap Custom Extension Guide
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/sibiraj-s/svelte-tiptap" target="_blank">
-				Creating a custom svelte block with Tiptap
-			</a>
-		</li>
-	</ul>
-</div>
 
 <style>
 	:global(h1, h2, h3, h4, h5, h6, p, ul, ol) {

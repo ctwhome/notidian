@@ -1,9 +1,13 @@
-const {app, ipcMain, BrowserWindow} = require("electron");
+const { app, ipcMain, BrowserWindow } = require("electron");
 const serve = require("electron-serve");
 const ws = require("electron-window-state");
-try { require("electron-reloader")(module); } catch {}
+try {
+  require("electron-reloader")(module);
+} catch {
+}
 
-const loadURL = serve({directory: "."});
+
+const loadURL = serve({ directory: "." });
 const port = process.env.PORT || 3000;
 const isdev = !app.isPackaged || (process.env.NODE_ENV == "development");
 let mainwindow;
@@ -22,9 +26,9 @@ function createMainWindow() {
 
   mainwindow = new BrowserWindow({
     /*Hide the bar but not the traffic lighs */
-    // titleBarStyle: 'hidden',
+    titleBarStyle: 'hidden',
     // trafficLightPosition: { x: 10, y: 10 },
-
+    // title: "✏️ Notidian",
     x: mws.x,
     y: mws.y,
 
@@ -38,17 +42,36 @@ function createMainWindow() {
     }
   });
 
-  mainwindow.once("close", () => { mainwindow = null; });
+  mainwindow.once("close", () => {
+    mainwindow = null;
+  });
 
-  if(!isdev) mainwindow.removeMenu();
+  if (!isdev) mainwindow.removeMenu();
   else mainwindow.webContents.openDevTools();
 
   mws.manage(mainwindow);
 
-  if(isdev) loadVite(port);
+  if (isdev) loadVite(port);
   else loadURL(mainwindow);
+
+
+  ipcMain.on("titlebar", (event, arg) => {
+    console.log("🎹 event",event );
+    if(arg === "destroy") window.destroy();
+    else if(arg === "kill") app.quit();
+    else if(arg === "minimize") window.minimize();
+    else if(arg === "resize") {
+      if(window.isMaximized()) window.unmaximize();
+      else window.maximize();
+    }
+  })
+
 }
 
 app.once("ready", createMainWindow);
-app.on("activate", () => { if(!mainwindow) createMainWindow(); });
-app.on("window-all-closed", () => { if(process.platform !== "darwin") app.quit(); });
+app.on("activate", () => {
+  if (!mainwindow) createMainWindow();
+});
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});
