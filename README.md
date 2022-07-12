@@ -6,12 +6,13 @@ by @ctwhome
 # install dependencies
 pnpm i
 # run development mode
-pnpm tauri dev
+pnpm dev
+#pnpm tauri dev
 # build SvelteKit
-pnpm build
+#pnpm build
 # build tauri app  - it needs to build the frontend first
-pnpm tauri build
+#pnpm tauri build
 
 # relsese: Build both, frontend and backend
-pnpm release
+pnpm package
 ```
