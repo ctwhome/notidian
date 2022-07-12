@@ -6,3 +6,7 @@ ckeditor {
     -webkit-user-select: text;
     user-select: text
 }
+
+.editor button{
+    @apply  btn btn-xs
+}

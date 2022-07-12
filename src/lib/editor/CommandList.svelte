@@ -15,9 +15,10 @@
 <svelte:window bind:innerHeight={height} />
 
 {#if $slashVisible}
+  <!-- TODO: open element at the cursor pointer -->
 	<div class="w-full absolute h-screen top-0" on:click={() => ($slashVisible = false)} />
 	<div
-		class="absolute bg-white shadow-xl w-96 h-96 max-w-full rounded-lg overflow-scroll"
+		class="absolute bg-base-100 shadow-xl w-96 h-96 max-w-full rounded-lg overflow-scroll"
 		style="left: {$slashLocaltion.x}px; top: {$slashLocaltion.y + $slashLocaltion.height + 384 >
 		height
 			? $slashLocaltion.y - $slashLocaltion.height - 384
@@ -26,7 +27,7 @@
 		<div class="p-2 text-sm text-slate-500">BLOCKS</div>
 		{#each $slashItems as { title, subtitle, command }, i}
 			<div
-				class="p-3 cursor-pointer {i == selectedIndex ? 'bg-slate-100' : 'bg-white'}"
+				class="p-3 cursor-pointer {i == selectedIndex ? 'bg-slate-100' : 'bg-base-100'}"
 				on:mouseenter={() => (selectedIndex = i)}
 				on:click={() => {
 					$slashVisible = false;
