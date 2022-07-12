@@ -2,8 +2,10 @@
   import { files } from "../lib/files.store.ts";
 
   function filed(event) {
-    console.log("🎹 event", event.target.files);
-    files.set(event.target.files);
+    console.log("🎹 no filtered", event.target.files);
+    const clean = Object.values(event.target.files).filter(file => file.name !=='.DS_Store');
+    console.log("🎹 clean", clean);
+    files.set(clean);
   }
 </script>
 

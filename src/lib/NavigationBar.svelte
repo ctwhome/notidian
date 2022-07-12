@@ -9,9 +9,12 @@
   <a class="btn btn-xs" href="/about">About page</a>
   {#each $files as file}
     <div class="flex">
-    <div class="line-clamp-1 flex-grow " on:click={window.open(`${file.path}`)}>{file.name}</div>
+      <a class="line-clamp-1 flex-grow " href={file.name+'?path='+file.path}>{file.name}?{file.path} ss</a>
       <div class="btn btn-xs ml-2">m</div>
     </div>
+<!--    <div class="line-clamp-1 flex-grow " on:click={window.open(`${file.path}`)}>{file.name}</div>-->
+<!--      <div class="btn btn-xs ml-2">m</div>-->
+<!--    </div>-->
   {/each}
 
 </div>
