@@ -1,5 +1,22 @@
+<script lang="ts">
+  // import { writeText, readText, readtau } from "@tauri-apps/api/clipboard";
+
+  import Editor from '$lib/editor/index.svelte';
+	import content from './content.json';
+
+  let value = "You can type here and copy the value to the clipboard!";
+
+
+  async function copyToClipboard(text) {
+    console.log('hello')
+    // await writeText(text);
+    //assert(await readText(), 'Tauri is awesome!');
+  }
+</script>
+
+
 <div class="container mx-auto p-5">
-  <h1 class="text-2xl font-bold">
+  <h1 class="text-3xl font-bold">
     Welcome to <a target="_blank" href="https://tauri.app">Tauri</a> -
     <a target="_blank" href="https://kit.svelte.dev">SvelteKit</a>
     -
@@ -9,6 +26,16 @@
   <p class="mt-10 bg-amber-300">
     Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
   </p>
-  <textarea name="input" id="" cols="60" rows="10" class="w-full" />
+  <textarea name="input" bind:value cols="60" rows="10" class="w-full" />
   <a class="btn" href="/about">About page</a>
+  <div class="btn" on:click={() => copyToClipboard(value)}>
+    Copy text to clipboard
+  </div>
 </div>
+
+<div class="container mx-auto p-5">
+   <Editor {content} />
+</div>
+
+
+ 

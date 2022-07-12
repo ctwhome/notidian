@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ckeditor {
+    -webkit-user-select: text;
+    user-select: text
+}
