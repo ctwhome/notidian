@@ -9,6 +9,7 @@
 	import Highlight from '@tiptap/extension-highlight';
 	import Underline from '@tiptap/extension-underline';
 	import BubbleMenu from '@tiptap/extension-bubble-menu';
+	import YouTube from '@tiptap/extension-youtube';
 	import Link from '@tiptap/extension-link';
 	import suggestion from './suggestion';
 	import Commands from './command';
@@ -88,6 +89,7 @@
 					Link,
           Underline,
           BubbleMenu,
+          YouTube,
           Highlight,
 					Commands.configure({
 						suggestion
