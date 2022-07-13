@@ -1,9 +1,9 @@
 {
 	"name": "Notidian",
 	"version": "0.0.1",
-	"main": "src/electron.cjs",
+	"main": "electron/electron.cjs",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "concurrently --kill-others \"vite dev\" \"electron electron/electron.cjs\"",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -11,7 +11,6 @@
 		"lint": "eslint --ignore-path .gitignore .",
 		"tauri": "tauri",
 		"release": "vite build && tauri build",
-		"electron": "concurrently --kill-others \"vite dev\" \"electron src/electron.cjs\"",
 		"package": "pnpm run build && electron-builder --config electron-builder.config.json"
 	},
 	"devDependencies": {
@@ -52,6 +51,7 @@
 		"@tailwindcss/line-clamp": "^0.4.0",
 		"@tauri-apps/api": "^1.0.2",
 		"@tiptap/extension-bubble-menu": "2.0.0-beta.61",
+		"@tiptap/extension-code-block-lowlight": "2.0.0-beta.73",
 		"@tiptap/extension-highlight": "2.0.0-beta.35",
 		"@tiptap/extension-image": "2.0.0-beta.30",
 		"@tiptap/extension-link": "2.0.0-beta.43",
@@ -71,6 +71,9 @@
 		"jsonfile": "^6.1.0",
 		"mkdirp": "^1.0.4",
 		"open": "^8.4.0",
+		"prosemirror-model": "^1.18.1",
+		"svelte-feather-icons": "^4.0.0",
+		"svelte-tiptap": "^0.6.0",
 		"theme-change": "^2.1.0",
 		"universalify": "^2.0.0"
 	}

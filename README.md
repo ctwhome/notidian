@@ -6,8 +6,7 @@ by @ctwhome
 # install dependencies
 pnpm i
 # run development mode
-pnpm electron # complete application 
-pnpm dev # frontend
+pnpm dev # complete application 
 #pnpm tauri dev
 # build SvelteKit
 #pnpm build

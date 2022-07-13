@@ -16,6 +16,15 @@
 	import Commands from './command';
 	import CommandList from './CommandList.svelte';
 	import { slashVisible, slashItems, slashProps, editorWidth } from '$lib/stores';
+  import {
+    BoldIcon,
+    ItalicIcon,
+    UnderlineIcon,
+    CodeIcon,
+    Link2Icon,
+    TypeIcon
+  } from "svelte-feather-icons";
+
 
 	export let content;
 	let output = false;
@@ -70,7 +79,7 @@
 		}
 	}
 
-	let element, editor, w;
+	let element, editor, w, bubbleMenuElement;
 
 	onMount(() => {
 		if (browser) {
@@ -88,7 +97,9 @@
 					TaskItem,
 					Link,
           Underline,
-          BubbleMenu,
+          BubbleMenu.configure({
+            element: bubbleMenuElement
+          }),
           YouTube,
           Image,
           Highlight,
@@ -114,9 +125,29 @@
 		}
 	});
 </script>
+<div class="sm:flex my-4">
+  <button
+    on:click={() => {
+			output = editor.getJSON();
+			outputType = 'json';
+		}}
+    class="m-2 border rounded-full px-4 py-2 border-slate-500 {outputType == 'json'
+			? 'bg-blue-200'
+			: ''}">See JSON Output</button
+  >
+  <button
+    on:click={() => {
+			output = editor.getHTML();
+			outputType = 'html';
+		}}
+    class=" m-2 border rounded-full px-4 py-2 border-slate-500 {outputType == 'html'
+			? 'bg-blue-200'
+			: ''}">See HTML Output</button
+  >
+</div>
 
 {#if editor}
-  <div class="editor sticky top-[50px] z-[100]">
+  <div class="editor sticky top-[0px] z-[100]">
     <div class="bg-base-100 p-3">
       <button
         on:click={() => console.log && editor.chain().focus().toggleBold().run()}
@@ -220,6 +251,66 @@
   </div>
 {/if}
 
+<div class="flex gap-2 bg-base-100 p-1 rounded shadow-md" bind:this={bubbleMenuElement}>
+  {#if editor}
+      <span
+        class="button"
+        on:click={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        class:active={editor.isActive("heading", { level: 2 })}
+      >
+        <TypeIcon />
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+      class:active={editor.isActive("heading", { level: 3 })}
+    >
+        <TypeIcon  />
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleBold().run()}
+      class:active={editor.isActive("bold")}
+    >
+        <BoldIcon />
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleItalic().run()}
+      class:active={editor.isActive("italic")}
+    >
+        <ItalicIcon />
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleCodeBlock().run()}
+      class:active={editor.isActive("customNode")}
+    >
+        <CodeIcon/>
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleCodeBlock().run()}
+      class:active={editor.isActive("customNode")}
+    >
+        <CodeIcon/>
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleHighlight({ color: '#ffcc00' }).run()}
+      class:active={editor.isActive("customNode")}
+    >
+        <CodeIcon/>
+      </span>
+    <span
+      class="button"
+      on:click={() => editor.chain().focus().toggleHighlight({ color: 'red' }).run()}
+      class:active={editor.isActive("customNode")}
+    >
+        <CodeIcon/>
+      </span>
+  {/if}
+</div>
 <div bind:this={element} />
 
 <div class="prose" bind:clientWidth={w}>
@@ -228,26 +319,6 @@
 
 <CommandList {selectedIndex} />
 
-<div class="sm:flex my-4">
-	<button
-		on:click={() => {
-			output = editor.getJSON();
-			outputType = 'json';
-		}}
-		class="m-2 border rounded-full px-4 py-2 border-slate-500 {outputType == 'json'
-			? 'bg-blue-200'
-			: ''}">See JSON Output</button
-	>
-	<button
-		on:click={() => {
-			output = editor.getHTML();
-			outputType = 'html';
-		}}
-		class=" m-2 border rounded-full px-4 py-2 border-slate-500 {outputType == 'html'
-			? 'bg-blue-200'
-			: ''}">See HTML Output</button
-	>
-</div>
 
 {#if output}
 	<div class="sm:flex flex-row-reverse">
@@ -268,6 +339,21 @@
 {/if}
 
 <style>
+
+/*    Bubble */
+
+.button{
+    @apply  bg-base-100 cursor-pointer border-l
+}
+.button.active{
+    @apply bg-base-300 cursor-pointer
+}
+
+
+  /* ----- */
+:global(.prose p){
+    @apply my-1
+}
 	:global(h1, h2, h3, h4, h5, h6, p, ul, ol) {
 		width: 100%;
 	}
@@ -336,4 +422,5 @@
 		border-radius: 0.25rem;
 		border-color: #cbd5e1;
 	}
+
 </style>

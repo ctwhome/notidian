@@ -1,10 +1,12 @@
 <script>
   import { page } from '$app/stores'
+  // import {dialog } from 'electron'
 
   console.log("🎹  page",$page );
   $: url = $page.params.page
   $: path = $page.url.searchParams.get('path')
 
+  // console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 </script>
 
 

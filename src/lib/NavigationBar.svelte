@@ -7,6 +7,7 @@
   <DaisyuiThemeSwitcher />
   <a class="btn btn-xs" href="/">Home</a>
   <a class="btn btn-xs" href="/about">About page</a>
+  <a class="btn btn-xs" href="/tip">tiptap</a>
   {#each $files as file}
     <div class="flex">
       <a class="line-clamp-1 flex-grow " href={file.name+'?path='+file.path}>{file.name}?{file.path} ss</a>
