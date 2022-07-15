@@ -7,15 +7,13 @@
   "version": "0.0.4",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon",
-		"dev:electron": "electron electron/electron.cjs",
     "nodemon": "nodemon",
-    "start": "yarn compile && electron .",
-    "svelte:dev": "cd svelte && yarn dev",
-    "svelte:build": "cd svelte && yarn build",
+    "start": "npm run compile && electron .",
+    "svelte:dev": "cd svelte && npm run dev",
+    "svelte:build": "cd svelte && npm run build",
     "compile": "tsc",
-    "out:win": "yarn svelte:build && yarn compile && electron-builder build --win --publish never",
-    "publish:win": "yarn svelte:build && yarn compile && electron-builder build --win --publish always"
+    "out:win": "npm run svelte:build && npm run compile && electron-builder build --win --publish never",
+    "publish:win": "npm run svelte:build && npm run compile && electron-builder build --win --publish always"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",

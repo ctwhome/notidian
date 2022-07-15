@@ -14,12 +14,9 @@ npx degit el3um4s/memento-sveltekit-electron-typescript
 Then install the dependencies with
 
 ```bash
-yarn install
+npm install
 cd svelte
-yarn install
-
-# Run
-yarn dev
+npm install
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
