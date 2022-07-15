@@ -1,14 +1,14 @@
 {
-  "name": "memento-sveltekit-electron-typescript",
-  "productName": "memento-sveltekit-electron-typescript",
-  "description": "Memento: how to use Svelte with Electron and TypeScript",
-  "author": "Samuele de Tomasi <samuele@stranianelli.com>",
+  "name": "notidian",
+  "productName": "notidian",
+  "description": "Notidian - a true merge of Notion and Obsidian",
+  "author": "J. Gonzlez <ctw@ctwhome.com>",
   "license": "MIT",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon",
-		"dev:electron": "electron electron/electron.cjs",
+    "dev:electron": "electron electron/electron.cjs",
     "nodemon": "nodemon",
     "start": "yarn compile && electron .",
     "svelte:dev": "cd svelte && yarn dev",
@@ -30,15 +30,15 @@
     "electron-updater": "^4.3.9"
   },
   "build": {
-    "appId": "memento-ket",
+    "appId": "notidian-ket",
     "directories": {
       "output": "out"
     },
     "publish": [
       {
         "provider": "github",
-        "owner": "el3um4s",
-        "repo": "memento-sveltekit-electron-typescript"
+        "owner": "ctwhome",
+        "repo": "notidian"
       }
     ],
     "win": {
@@ -50,7 +50,7 @@
     "nsis": {
       "installerIcon": "icon.ico",
       "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "Memento KET (SvelteKit+Electron+TypeScript)",
+      "uninstallDisplayName": "Notidian",
       "license": "license.txt",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true

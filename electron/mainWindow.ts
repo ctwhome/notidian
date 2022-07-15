@@ -4,19 +4,19 @@ import EventEmitter from 'events';
 import ConfigureDev from './configureDev';
 import { DeveloperOptions } from "./configureDev";
 
-const appName = "MEMENTO - SvelteKit, Electron, TypeScript";
+const appName = "Notidian";
 
 const defaultSettings = {
-  title:  "MEMENTO - SvelteKit, Electron, TypeScript",
+  title:  "Notidian",
   width: 854,
   height: 480
 }
 
 const defaultSettingsDev:DeveloperOptions = {
-  isInProduction: true,    // true if is in production
-  serveSvelteDev: false,    // true when you want to watch svelte 
+  isInProduction: false,    // true if is in production
+  serveSvelteDev: true,    // true when you want to watch svelte
   buildSvelteDev: false,     // true when you want to build svelte
-  watchSvelteBuild: false,   // true when you want to watch build svelte 
+  watchSvelteBuild: false,   // true when you want to watch build svelte
 }
 
 class Main {
@@ -56,6 +56,7 @@ class Main {
     app.name = appName;
     let window = new BrowserWindow({
       ...settings,
+      titleBarStyle: 'hidden',
       show: false, // false
       webPreferences: {
         nodeIntegration: false,

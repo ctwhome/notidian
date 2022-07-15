@@ -26,9 +26,10 @@
 
 let c
   onMount(()=>{
-      window.electron.GetCounter((event,counter)=> {
-        c = counter
-        })
+    console.log("🎹 window.api", window.api );
+      // window.electron.GetCounter((event,counter)=> {
+      //   c = counter
+      //   })
 
    /* document.getElementById('drag').ondragstart = (event, counter) => {
       console.log("🎹 event",event, counter );
